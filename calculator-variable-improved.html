@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rakid Calculator</title>
+  <style>
+      .whole-div {
+        position:relative;
+        width:380px;
+        height:450px;
+        border:none;
+        border-radius:10px;
+        margin-left:10px;
+        margin-top:40px;
+        padding-top:80px;
+        box-shadow:0 0 7px rgba(0,0,0,0.7);
+    }
+    .layout {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:10px;
+      margin-bottom:40px;
+      margin-left:15px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+    }
+    .button-click,
+    .ac-click,
+    .sign-click {
+      background:white;
+      font-size:18px;
+      font-family:Arial;
+      font-weight:500;
+      margin-top:5px;
+      margin-right:5px;
+      padding:13px 30px;
+      border:none;
+      box-shadow:0 0 7px rgba(0,0,0,0.7);
+      border-radius:7px;
+    }
+    .ac-click {
+      background:#10162F;
+      color:white;
+    }
+    .sign-click {
+      background:#ff9800;
+      color:white;
+      font-size:20px;
+    }
+    .display-div {
+      position:relative;
+      margin-bottom:0;
+      border:none;
+      margin-left:15px;
+      margin-right:15px;
+      border-radius:5px;
+      height:120px;
+      box-shadow:inset 0 0 7px rgba(0,0,0,0.6);
+      z-index:200;
+    }
+    .displayCalculator {
+      position:absolute;
+      bottom:45px;
+      right:20px;
+      font-size:30px;
+      font-weight:500;
+    }
+    .Calculate{
+      position:absolute;
+      bottom:5px;
+      right:20px;
+      font-size:22px;
+      font-weight:500;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="whole-div">
+    
+    <div class="display-div">
+      <div class="displayCalculator">0</div>
+      <div class="Calculate"></div>
+    </div>
+  
+  <div class="layout">
+    <button class="button-click" onclick="
+      updateCalculation('(');">(
+    </button>
+      
+    <button class="button-click" onclick="
+      updateCalculation(')');">)
+    </button>
+
+    <button class="button-click" onclick="
+      updateCalculation('%');">%
+    </button>
+
+    <button class="ac-click" onclick="
+      calculation = '';
+      document.querySelector('.displayCalculator').innerHTML = `${calculation}`;">AC
+    </button>
+    
+    <button class="button-click" onclick="
+      updateCalculation(7);">7
+    </button>
+ 
+    <button class="button-click" onclick="
+      updateCalculation(8);">8
+    </button>
+
+    <button class="button-click" onclick="
+      updateCalculation(9);">9
+    </button>
+    
+    <button class="sign-click" onclick="
+      updateCalculation('/');">÷
+    </button>
+  
+    <button class="button-click" onclick="
+      updateCalculation(4);">4
+    </button>
+ 
+    <button class="button-click" onclick="
+      updateCalculation(5);">5
+    </button>
+ 
+    <button class="button-click" onclick="
+      updateCalculation(6);">6
+    </button>
+    
+    <button class="sign-click" onclick="
+      updateCalculation('*');">×
+    </button>
+  
+    <button class="button-click" onclick="
+      updateCalculation(1);">1
+    </button>
+ 
+    <button class="button-click" onclick="
+      updateCalculation(2);">2
+    </button>
+ 
+    <button class="button-click" onclick="
+      updateCalculation(3);">3
+    </button>
+    
+    <button class="sign-click" onclick="
+      updateCalculation('-');">-
+    </button>
+  
+  <button class="button-click" onclick="
+    updateCalculation(0);">0
+  </button>
+  
+  <button class="button-click" onclick="
+      updateCalculation('.');">.
+  </button>
+  
+  <button class="button-click" onclick="
+   calculation = eval(calculation);
+   document.querySelector('.Calculate').innerHTML = `${calculation}`;">=
+ </button>
+  
+  <button class="sign-click" onclick="
+    updateCalculation('+');">+
+ </button>
+
+</div>
+</main>
+
+ 
+   
+ <script>
+   let calculation = '';
+   function updateCalculation(value) {
+     calculation += value;
+     document.querySelector('.displayCalculator').innerHTML = `${calculation}`;
+    // console.log(calculation);
+   }
+ </script>
+</body>
+
+</html>
